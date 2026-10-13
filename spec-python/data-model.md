@@ -131,9 +131,9 @@ porque ningún requisito las pide.
 | `loan_item.loan_id` → `loan.id` CASCADE | FK | **motor** |
 | `loan_item.book_id` → `book.id` RESTRICT | FK | **motor** |
 | `0 <= available_copies <= total_copies` | `ck_book_available_range` | **motor** — última barrera de concurrencia |
-| `total_copies >= 1` | `ck_book_total_positive` | **pendiente (T-18)** · hoy solo dominio |
+| `total_copies >= 1` | `ck_book_total_positive` | **motor** (T-18 hecha: migración `2026_10_13_000002` en `api`) |
 | Único `(loan_id, book_id)` | índice único | **motor** |
-| `role` en (`admin`,`librarian`) | `ck_user_role` | **pendiente (T-18)** · hoy solo dominio |
+| `role` en (`admin`,`librarian`) | `ck_user_role` | **motor** (T-18 hecha: migración `2026_10_13_000002` en `api`) |
 | Máximo 3 sin devolver por socio | — | **solo dominio** (no expresable en un `CHECK`) |
 | Socio con vencidos no pide | — | **solo dominio** |
 | Descontar ejemplar y crear línea son una operación | — | **solo dominio** (una transacción) |
